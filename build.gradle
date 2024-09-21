@@ -1,9 +1,79 @@
-plugins {
-    id 'org.antora' version '1.0.0'
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.transfer.MultipleFileUpload;
+import com.amazonaws.services.s3.transfer.TransferManager;
+import com.amazonaws.services.s3.transfer.TransferManagerBuilder;
+import com.amazonaws.services.s3.transfer.Transfer;
+import com.amazonaws.services.s3.transfer.Upload;
+import com.amazonaws.event.ProgressEvent;
+import com.amazonaws.event.ProgressListener;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.amazonaws:aws-java-sdk-core:1.11.5'
+        classpath 'com.amazonaws:aws-java-sdk-s3:1.12.772'
+    }
 }
 
-repositories {
-    mavenCentral()
+plugins {
+    id 'org.antora' version '1.0.0'
+    id 'maven-publish'
+}
+
+def fetchAwsCredentials = {
+    try {
+        return new ProfileCredentialsProvider().getCredentials()
+    } catch (Exception e) {
+        logger.debug('Unable to retrieve AWS credentials from profile, publishing to S3 will not be available.', e)
+        return null
+    }
+}
+
+AWSCredentials awsCredentials =  fetchAwsCredentials()
+
+
+tasks.register('publishOnS3', Task){
+    doFirst {
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials(awsCredentials.AWSAccessKeyId, awsCredentials.AWSSecretKey);
+        AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
+                .withRegion("eu-west-1")
+                .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
+                .build();
+
+        TransferManager tm = TransferManagerBuilder.standard()
+                .withS3Client(s3Client)
+                .build();
+
+        // Upload directory
+        Transfer transfer = tm.uploadDirectory("mimmo-site", "cheat-sheet-site", new File("$buildDir/site"), true);
+
+        transfer.addProgressListener(new ProgressListener() {
+            @Override
+            public void progressChanged(ProgressEvent progressEvent) {
+                System.out.println("Transferred bytes: " + progressEvent.getBytesTransferred());
+            }
+        });
+
+        try {
+            transfer.waitForCompletion();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally{
+            tm.shutdownNow();
+        }
+    }
 }
 
 antora {
