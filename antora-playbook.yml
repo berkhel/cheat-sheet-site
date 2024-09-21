@@ -1,6 +1,6 @@
 site:
   title: My Cheat Sheet
-  url: http://mimmo-site.s3-website-eu-west-1.amazonaws.com
+  #url: http://mimmo-site.s3-website-eu-west-1.amazonaws.com
   start_page: component-a:module-a:index.adoc
 content:
   sources:
