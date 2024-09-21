@@ -9,5 +9,6 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
+antora {
+    options = [clean: true, fetch: true, stacktrace: true]
 }
