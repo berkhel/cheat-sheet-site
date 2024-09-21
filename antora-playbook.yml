@@ -1,7 +1,7 @@
 site:
   title: My Cheat Sheet
   #url: http://mimmo-site.s3-website-eu-west-1.amazonaws.com
-  start_page: acomponent::index.adoc
+  start_page: comp::index.adoc
 content:
   sources:
     - url : https://github.com/berkhel/acomponent.git
