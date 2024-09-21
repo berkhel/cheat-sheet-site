@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'org.antora' version '1.0.0'
 }
 
 group = 'org.example'
@@ -10,10 +10,4 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-}
-
-test {
-    useJUnitPlatform()
 }
