@@ -1,0 +1,8 @@
+= My Cheat Sheet
+
+== Git
+
+[,shell]
+----
+git init
+----
