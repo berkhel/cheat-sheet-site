@@ -30,5 +30,5 @@ jobs:
         run: chmod +x ./gradlew
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: ./gradlew publishOnS3
+        run: ./gradlew publishOnS3 -DawsAccessKeyId=${{ secrets.AWS_ACCESS_KEY_ID }} -DawsSecretAccessKey=${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
