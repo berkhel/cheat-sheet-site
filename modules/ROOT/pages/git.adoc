@@ -1,6 +1,73 @@
 == Git
 
-[,shell]
+Create a git repo locally
+[,bash]
 ----
 git init
 ----
+
+Clone a remote git repo
+[,bash]
+----
+git clone {repo-url}
+----
+
+Add a file to the index
+[,bash]
+----
+git add {file-path}
+----
+
+Add the index content to a new commit
+[,bash]
+----
+git commit -m "{message}"
+----
+
+Upload the last commit to the remote repo
+[,bash]
+----
+git push [ -u origin {remote-branch} ]
+----
+
+Show current branch, untracked files, staged files, commit ready to be pushed and other info's
+[,bash]
+----
+git status
+----
+
+Show all the branches on current repo
+[,bash]
+----
+git branch -v
+----
+
+Switch to another branch
+[,bash]
+----
+git switch {other-branch}
+# or
+git checkout {other-branch}
+----
+
+Create a new branch
+[,bash]
+----
+git branch {new-branch}
+# or
+git switch -c {new-branch}
+# or
+git checkout -b {new-branch}
+----
+
+Merge one branch into current branch
+[,bash]
+----
+git merge {other-branch}
+----
+If a collision occur:
+* Open the impacted file
+* Resolve the conflict and save
+* git add the file
+* repeat for each impacted file
+* git commit
