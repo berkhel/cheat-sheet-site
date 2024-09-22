@@ -65,7 +65,8 @@ Merge one branch into current branch
 ----
 git merge {other-branch}
 ----
-If a collision occur:
+If a collision occurs:
+
 * Open the impacted file
 * Resolve the conflict and save
 * git add the file
