@@ -94,7 +94,7 @@ tasks.register('publishOnS3', Task){
 antora {
     options = [clean: true, fetch: true, stacktrace: true]
     packages = [
-        '@antora/lunr-extension'
+        '@antora/lunr-extension' : 'latest'
     ]
 
 }
