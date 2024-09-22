@@ -1,15 +1,2 @@
 = My Cheat Sheet
 
-== Git
-
-[,shell]
-----
-git init
-----
-
-|===
-| Country | Capital
-| Italy | Rome
-| France | Paris
-| Germany | Berlin
-|===
