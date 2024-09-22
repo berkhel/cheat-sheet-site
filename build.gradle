@@ -1,4 +1,7 @@
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.transfer.TransferManager;
@@ -18,19 +21,35 @@ buildscript {
     }
 }
 
+
+
 plugins {
     id 'org.antora' version '1.0.0'
     id 'maven-publish'
 }
 
+def fetchCredentials = {
+    if(System.hasProperty("awsAccessKeyId") && System.hasProperty("awsSecretAccessKey")){
+        new AWSStaticCredentialsProvider(new BasicAWSCredentials(
+                System.getProperty("awsAccessKeyId"),
+                System.getProperty("awsSecretAccessKey")
+        ))
+    }else {
+        new ProfileCredentialsProvider()
+    }
+}
 
 tasks.register('publishOnS3', Task){
     group = 'publishing'
     description = 'upload the Antora site on S3'
     doFirst {
+
+        AWSCredentialsProvider credentials = fetchCredentials()
+        print(credentials.getCredentials().AWSAccessKeyId)
+
         AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
                 .withRegion("eu-west-1")
-                .withCredentials(new ProfileCredentialsProvider())
+                .withCredentials(credentials)
                 .build();
 
         TransferManager tm = TransferManagerBuilder.standard()
@@ -58,6 +77,7 @@ tasks.register('publishOnS3', Task){
         }finally{
             tm.shutdownNow();
         }
+
     }
 
     dependsOn('antora')
