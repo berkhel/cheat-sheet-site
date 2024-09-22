@@ -9,7 +9,8 @@ import com.amazonaws.services.s3.transfer.TransferManagerBuilder;
 import com.amazonaws.services.s3.transfer.Transfer;
 import com.amazonaws.services.s3.transfer.Upload;
 import com.amazonaws.event.ProgressEvent;
-import com.amazonaws.event.ProgressListener;
+import com.amazonaws.event.ProgressListener
+import de.undercouch.gradle.tasks.download.Download;
 
 buildscript {
     repositories {
@@ -26,6 +27,7 @@ buildscript {
 plugins {
     id 'org.antora' version '1.0.0'
     id 'maven-publish'
+    id 'de.undercouch.download' version '5.6.0'
 }
 
 def fetchCredentials = {
@@ -37,6 +39,13 @@ def fetchCredentials = {
     }catch(IllegalArgumentException | NullPointerException ignored){
         new ProfileCredentialsProvider()
     }
+}
+
+tasks.register('downloadUIBundle', Download){
+    src 'http://mimmo-site.s3-website-eu-west-1.amazonaws.com/ui-bundle.zip'
+   // src 'https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable'
+    dest file("$buildDir/download/ui-bundle.zip")
+    overwrite false // Prevents downloading if the file already exists
 }
 
 tasks.register('publishOnS3', Task){
@@ -80,6 +89,12 @@ tasks.register('publishOnS3', Task){
     dependsOn('antora')
 }
 
+
+
 antora {
     options = [clean: true, fetch: true, stacktrace: true]
+}
+
+tasks.named('antora'){
+    dependsOn 'downloadUIBundle'
 }
