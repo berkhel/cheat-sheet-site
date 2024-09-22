@@ -11,4 +11,5 @@ git init
 | Country | Capital
 | Italy | Rome
 | France | Paris
+| Germany | Berlin
 |===
