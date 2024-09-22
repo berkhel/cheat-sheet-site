@@ -29,12 +29,12 @@ plugins {
 }
 
 def fetchCredentials = {
-    if(System.hasProperty("awsAccessKeyId") && System.hasProperty("awsSecretAccessKey")){
+    try{
         new AWSStaticCredentialsProvider(new BasicAWSCredentials(
                 System.getProperty("awsAccessKeyId"),
                 System.getProperty("awsSecretAccessKey")
         ))
-    }else {
+    }catch(IllegalArgumentException | NullPointerException ignored){
         new ProfileCredentialsProvider()
     }
 }
@@ -44,12 +44,9 @@ tasks.register('publishOnS3', Task){
     description = 'upload the Antora site on S3'
     doFirst {
 
-        AWSCredentialsProvider credentials = fetchCredentials()
-        print(credentials.getCredentials().AWSAccessKeyId)
-
         AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
                 .withRegion("eu-west-1")
-                .withCredentials(credentials)
+                .withCredentials(fetchCredentials())
                 .build();
 
         TransferManager tm = TransferManagerBuilder.standard()
