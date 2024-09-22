@@ -8,5 +8,5 @@ content:
       branches : [main]
 ui:
   bundle:
-    url: https://minio.owncloud.com/documentation/ui-bundle.zip
+    url: https://github.com/berkhel/antora-ui-custom/actions/runs/10980586024/artifacts/1963064822
    # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
