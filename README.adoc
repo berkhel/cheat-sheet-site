@@ -1,5 +1,5 @@
 = My Cheat Sheet
 Example of static site generated with Antora
 
-Visit +
+Visit the sample site, built with Antora +
 http://mimmo-site.s3-website-eu-west-1.amazonaws.com/cheat-sheet-site
