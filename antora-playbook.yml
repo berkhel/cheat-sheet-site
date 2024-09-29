@@ -2,6 +2,8 @@ site:
   title: My Cheat Sheet
   #url: http://mimmo-site.s3-website-eu-west-1.amazonaws.com
   start_page: playbook::index.adoc
+  keys:
+    google_analytics: 'GG-8KPNVR0Y2R'
 content:
   sources:
     - url : https://github.com/berkhel/cheat-sheet-site.git
