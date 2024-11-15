@@ -72,3 +72,12 @@ If a collision occurs:
 * git add the file
 * repeat for each impacted file
 * git commit
+
+
+Configure username
+[,bash]
+----
+git config --global user.name {username}
+----
+
+
