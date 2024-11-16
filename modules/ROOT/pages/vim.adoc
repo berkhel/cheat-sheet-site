@@ -1,1 +1,157 @@
 == Vim
+
+
+=== Normal commands
+
+==== Motions
+
+|===
+| Command | Description
+| h | left
+| j | down
+| k | up
+| l | right
+| 0 | start of the line
+| $ | end of the line
+| gj | visually down
+| gk | visually up
+| g0 | visually start of the line
+| g$ | visually end of the line
+| gg | go to the beginning of the file
+| G | go to the last row of the file (beginning of the row)
+| b | go to the beginning of the current word
+| w | go to the beginning of the next word
+| e | go to the end of the current word
+| % | go to the parenthesis twin
+| ge | go to the end of the previous word
+| f<CHAR> | go to the next occurence of <CHAR>
+| F<CHAR> | go to the previous occurrence of <CHAR>
+| t<CHAR> | go before the next occurrence of <CHAR>
+| T<CHAR> | go after the previous occurrence of <CHAR>
+| ; | repeat the last <f|F|t|T>
+| , | repeat the last <f|F|t|T> but inverted
+| H | move the cursor on the top line of the window
+| M | move the cursor on the middle line of the window
+| L | move the cursor on the low line of the window
+|===
+
+
+==== Actions
+
+|===
+| x | delete a character on the right of the cursor
+| X | delete a character on the left of the cursor
+| J | join the current line with the line below 
+|===
+
+
+==== Verbs
+
+|===
+| Verb | Description
+| y | copy
+| p | paste
+| c | change
+| d | cut
+| v | select
+|===
+
+All the verbs when doubled refer to line actions
+Example: yy copy a line
+
+==== Nouns
+
+
+|===
+| Noun | Without modifier | With modifier
+| l | character | 
+| b | beginning of the current work | block {}
+| e | end of the current word | entire file
+| w | beginning of the next word | entire word
+| s | | phrase 
+| p | | paragraph
+| t | | tag <> 
+| $ | end of the line |
+| ^ | start of the line |
+| % | all the content of parenthesis \+ parenthesis itself (the cursor must be over a parentheses) |
+| . | last command |
+|===
+
+(djfkdjkfj) jfkdj
+
+==== Modifiers
+
+|===
+| Modifier | Description
+| i | inner
+| a | around
+| t | until
+| f | find
+| T | until (reversed)
+| F | find (reversed)
+| / | next occurrence of
+| <NUM> | multiply precedent verb action
+|===
+
+
+=== Insert Mode
+
+|===
+| Command | Description
+| CTRL-o | allow to execute a norm command and then return to insert mode
+|===
+
+
+
+=== Visual Modes
+
+During all the visual modes
+
+|===
+| Command | Description
+| y | copy
+| p | paste
+| c | cut \+ insert mode
+| o | invert the selection direction
+| gv | re-select the last selection (from any visual mode)
+| <ESC> | confirm the change and exit visual mode
+|===
+
+==== Visual
+
+v: enter visual mode on current character
+gb: enter visual mode selecting the current word
+
+
+==== Visual Line
+
+|===
+| Command | Description
+| = | smart indentation
+| > | add a tab to all the lines
+| < | remove a tab to all the lines
+|===
+
+
+==== Visual Block
+
+CTRL-v to enter in visual-block mode
+
+|===
+| Command | Description
+| $ | select until the end of each line
+| $A | append a the end of the lines
+| I | insert at the beginning of the lines
+|===
+
+
+
+=== Folders
+
+|===
+| Command | Description
+| zo | open folder
+| zc | close folder
+| zR | open all folders
+| zM | close all folders
+|===
