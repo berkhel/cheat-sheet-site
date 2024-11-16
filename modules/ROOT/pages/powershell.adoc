@@ -1,1 +1,52 @@
 == Powershell
+
+
+=== Conceptual topics
+
+[,powershell]
+----
+Get-Help about*
+----
+
+=== Command list
+[,powershell]
+----
+Get-Command
+----
+
+Or better (grouped by verb, with alias and descriptions)
+
+[,powershell]
+----
+gcm * | where verb | ft noun, commandtype, @{label='alias';expression={(get-alias -definition $_).name}}, @{label='description';expression={(get-help $_).synopsis}} -groupby verb -autosize
+----
+
+
+=== Specific cmdlet manual
+[,powershell]
+----
+Get-Help <cmdlet-name>
+----
+
+=== Update all guides/manuals
+[,powershell]
+----
+Update-Help -Module * -Force
+----
+
+
+=== Make the scripts executable
+
+[,powershell]
+----
+Set-ExecutionPolicy -Scope CurrentUser
+
+ExecutionPolicy: RemoteSigned
+----
+
+Or
+
+[,powershell]
+----
+Set-ExecutionPolicy ByPass -Scope Process -Force
+----
