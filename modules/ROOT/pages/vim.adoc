@@ -77,7 +77,6 @@ Example: yy copy a line
 | . | last command |
 |===
 
-(djfkdjkfj) jfkdj
 
 ==== Modifiers
 
