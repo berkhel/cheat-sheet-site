@@ -1,4 +1,5 @@
 == Git
+:source-highlighter: highlight.js
 
 Create a git repo locally
 [,bash]
