@@ -1,5 +1,5 @@
 site:
-  title: My Cheat Sheet
+  title: Cheat Sheet
   #url: http://mimmo-site.s3-website-eu-west-1.amazonaws.com
   start_page: playbook::index.adoc
   keys:
