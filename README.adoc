@@ -1,4 +1,4 @@
-= My Cheat Sheet
+= Cheat Sheet
 Example of static site generated with Antora
 
 Visit the sample site, built with Antora +
