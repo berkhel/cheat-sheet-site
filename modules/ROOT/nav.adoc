@@ -1,8 +1,12 @@
 .Git
-* xref:git/git.adoc[Git]
+* xref:git/basic.adoc[Basic]
 
 .Vim
-* xref:vim/vim.adoc[Vim]
+* xref:vim/normal.adoc[Normal Commands]
+* xref:vim/insert.adoc[Insert Commands]
+* xref:vim/visual.adoc[Visual Commands]
+* xref:vim/folder.adoc[Folders]
 
 .Powershell
-* xref:powershell/powershell.adoc[Powershell]
+* xref:powershell/help.adoc[Help]
+* xref:powershell/security.adoc[Security]

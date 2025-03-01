@@ -1,0 +1,6 @@
+= Insert Commands
+
+|===
+| Command | Description
+| CTRL-o | allow to execute a norm command and then return to insert mode
+|===

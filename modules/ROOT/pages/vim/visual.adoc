@@ -1,0 +1,44 @@
+= Visual Command
+
+== Visual Modes
+
+During all the visual modes
+
+|===
+| Command | Description
+| y | copy
+| p | paste
+| c | cut \+ insert mode
+| o | invert the selection direction
+| gv | re-select the last selection (from any visual mode)
+| <ESC> | confirm the change and exit visual mode
+|===
+
+=== Visual
+
+v: enter visual mode on current character
+gb: enter visual mode selecting the current word
+
+
+=== Visual Line
+
+|===
+| Command | Description
+| = | smart indentation
+| > | add a tab to all the lines
+| < | remove a tab to all the lines
+|===
+
+
+=== Visual Block
+
+CTRL-v to enter in visual-block mode
+
+|===
+| Command | Description
+| $ | select until the end of each line
+| $A | append a the end of the lines
+| I | insert at the beginning of the lines
+|===
+
+

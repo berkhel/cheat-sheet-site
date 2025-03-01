@@ -1,14 +1,13 @@
-== Powershell
+= Help
 
-
-=== Conceptual topics
+== Conceptual topics
 
 [,powershell]
 ----
 Get-Help about*
 ----
 
-=== Command list
+== Command list
 [,powershell]
 ----
 Get-Command
@@ -22,31 +21,14 @@ gcm * | where verb | ft noun, commandtype, @{label='alias';expression={(get-alia
 ----
 
 
-=== Specific cmdlet manual
+== Specific cmdlet manual
 [,powershell]
 ----
 Get-Help <cmdlet-name>
 ----
 
-=== Update all guides/manuals
+== Update all guides/manuals
 [,powershell]
 ----
 Update-Help -Module * -Force
-----
-
-
-=== Make the scripts executable
-
-[,powershell]
-----
-Set-ExecutionPolicy -Scope CurrentUser
-
-ExecutionPolicy: RemoteSigned
-----
-
-Or
-
-[,powershell]
-----
-Set-ExecutionPolicy ByPass -Scope Process -Force
 ----

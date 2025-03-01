@@ -1,0 +1,17 @@
+= Security
+
+== Make the scripts executable
+
+[,powershell]
+----
+Set-ExecutionPolicy -Scope CurrentUser
+
+ExecutionPolicy: RemoteSigned
+----
+
+Or
+
+[,powershell]
+----
+Set-ExecutionPolicy ByPass -Scope Process -Force
+----

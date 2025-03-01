@@ -1,0 +1,9 @@
+= Folders
+
+|===
+| Command | Description
+| zo | open folder
+| zc | close folder
+| zR | open all folders
+| zM | close all folders
+|===
