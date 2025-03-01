@@ -1,4 +1,4 @@
-name: playbook
+name: Cheat Sheet
 version: 1.0
 nav:
   - modules/ROOT/nav.adoc
