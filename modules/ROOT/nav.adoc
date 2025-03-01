@@ -1,8 +1,8 @@
 .Git
-* xref:git.adoc[Git]
+* xref:git/git.adoc[Git]
 
 .Vim
-* xref:vim.adoc[Vim]
+* xref:vim/vim.adoc[Vim]
 
 .Powershell
-* xref:powershell.adoc[Powershell]
+* xref:powershell/powershell.adoc[Powershell]
