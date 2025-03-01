@@ -1,12 +1,12 @@
 name: cheat-sheet
 version: '1.1'
-prerelease: '.0-alpha.8'
+prerelease: '.0-alpha'
 title: Cheat Sheet
 asciidoc:
   attributes:
     release-date: '2025-03-01'
     release-tag: testing
-    release-version: '1.1.0-alpha.8'
+    release-version: '1.1.0'
     source-language: asciidoc@
     xrefstyle: short@
     example-caption: false
