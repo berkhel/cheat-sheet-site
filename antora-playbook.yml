@@ -1,7 +1,7 @@
 site:
   title: Cheat Sheet
   #url: http://mimmo-site.s3-website-eu-west-1.amazonaws.com
-  start_page: playbook::index.adoc
+  start_page: Cheat Sheet::index.adoc
   keys:
     google_analytics: 'G-8KPNVR0Y2R'
 content:
