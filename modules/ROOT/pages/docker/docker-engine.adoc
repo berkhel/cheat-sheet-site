@@ -1,0 +1,27 @@
+= Basic
+
+Show Docker Engine status
+[source,bash]
+----
+sudo service docker status
+----
+
+Start Docker Engine
+[source,bash]
+----
+sudo service docker start
+----
+
+Stop Docker Engine
+[source,bash]
+----
+sudo service docker stop
+----
+
+
+Verify whether Docker Engine is active
+[source,bash]
+----
+sudo systemctl is-active docker
+----
+

@@ -1,0 +1,8 @@
+= Docker Compose
+
+
+Rebuild the images and then start the containers
+[source,bash]
+----
+sudo docker compose up --build
+----

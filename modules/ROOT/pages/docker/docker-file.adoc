@@ -1,0 +1,32 @@
+= Dockerfile
+
+Specify the base image for the docker container
+[source,Dockerfile]
+----
+FROM <image-id>
+----
+
+Set the working directory inside the container
+[source,Dockerfile]
+----
+WORKDIR <path>
+----
+
+Copy from host to container
+[source,Dockerfile]
+----
+COPY <source-path> <dest-path(relative to workdir)>
+----
+
+Expose Port Hint
+This line informs Docker that the container will listen on the selected port. This does not actually publish the port, but it serves as a hint to users of the image and allows Docker to map the port to the host machine if specified during container runtime.
+[source,Dockerfile]
+----
+EXPOSE <port-number>
+----
+
+Run command inside the container
+[source,Dockerfile]
+----
+CMD <command(relative to workdir)>
+----
